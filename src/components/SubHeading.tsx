@@ -1,4 +1,3 @@
-import React from "react";
 import styled from 'styled-components';
 
 const FlexBox = styled.div`
@@ -13,7 +12,12 @@ const Title = styled.h3`
   margin:0 0 0 1rem;
 `;
 
-function SubHeading({ title = '', icon = '' }) {
+type Props = {
+	title: string,
+	icon: string
+}
+
+function SubHeading({ title = '', icon = '' }: Props) {
 	return <FlexBox>
 		<img alt="tending" src={icon} width="16px" height="16px" />
 		<Title>{title}</Title>

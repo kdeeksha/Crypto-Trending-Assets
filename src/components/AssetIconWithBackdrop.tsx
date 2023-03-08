@@ -1,9 +1,14 @@
-import React from "react";
 import styled from "styled-components";
-import { ASSET_TYPE } from "../types/Assets";
 import AssetIcon from "./AssetIcon";
 
-const getLinearBackground = (type) => {
+
+import { ASSET_TYPE } from "../types/Assets";
+
+type Props = {
+	type: ASSET_TYPE
+}
+
+const getLinearBackground = (type: ASSET_TYPE) => {
 	switch (type) {
 		case ASSET_TYPE.ETHEREUM:
 			return `linear-gradient(180deg, rgba(98, 106, 136, 0.1) 0%, rgba(237, 240, 244, 0.1) 100%)`;
@@ -26,10 +31,10 @@ const StyledDiv = styled.div`
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-	background: ${props => getLinearBackground(props.type)}
+	background: ${(props: Props) => getLinearBackground(props.type)}
 `;
 
-function AssetIconWithBackdrop({ type }) {
+function AssetIconWithBackdrop({ type }: Props) {
 	return <StyledDiv type={type}>
 		<AssetIcon type={type} width="50px" height="50px" />
 	</StyledDiv>;

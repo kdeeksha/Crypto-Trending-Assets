@@ -1,7 +1,12 @@
-import React from "react";
 import { ASSET_TYPE } from "../types/Assets";
 
-function AssetIcon({ type, width = "22px", height = "22px" }) {
+type Props = {
+	type: ASSET_TYPE,
+	width?: string,
+	height?: string
+}
+
+function AssetIcon({ type, width = "22px", height = "22px" }: Props) {
 	const imgAttributes = {
 		width,
 		height
